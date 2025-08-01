@@ -368,6 +368,11 @@ def main():
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# Add a simple route for testing
+@app.route('/')
+def home():
+    return "YouTube Video Recommendations API is running!"
+
 @app.route('/api/recommendations', methods=['POST'])
 def get_recommendations():
     """API endpoint to get video recommendations for a given report."""
@@ -422,6 +427,7 @@ def health_check():
 
 def run_web_server(host='0.0.0.0', port=5000, debug=False):
     """Run the Flask web server."""
+    port = int(os.environ.get('PORT', port))
     app.run(host=host, port=port, debug=debug)
 
 if __name__ == "__main__":

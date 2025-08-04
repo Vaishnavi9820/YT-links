@@ -366,23 +366,23 @@ def main():
 
 # Initialize Flask app
 app = Flask(__name__)
-# CORS(app)  # Enable CORS for all routes
+CORS(app)  # Enable CORS for all routes
 # Configure CORS to allow requests from Mockmingle.in
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            "https://mockmingle.in",
-            "http://mockmingle.in",
-            "https://www.mockmingle.in",
-            "http://localhost:3000",  # For local development
-            "https://localhost:3000"
+# CORS(app, resources={
+#     r"/api/*": {
+#         "origins": [
+#             "https://mockmingle.in",
+#             "http://mockmingle.in",
+#             "https://www.mockmingle.in",
+#             "http://localhost:3000",  # For local development
+#             "https://localhost:3000"
 
-        ],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"],
-        "supports_credentials": True
-    }
-})
+#         ],
+#         "methods": ["GET", "POST", "OPTIONS"],
+#         "allow_headers": ["Content-Type"],
+#         "supports_credentials": True
+#     }
+# })
 
 # Add a simple route for testing
 @app.route('/')
